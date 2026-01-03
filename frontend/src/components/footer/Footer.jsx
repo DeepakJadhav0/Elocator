@@ -1,4 +1,4 @@
-import { IoIosLocate, IoIosSend } from "react-icons/io";
+import {  IoIosSend } from "react-icons/io";
 import { IoMdMail } from "react-icons/io";
 import { IoIosCall } from "react-icons/io";
 import { IoLocation } from "react-icons/io5";
