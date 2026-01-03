@@ -1,0 +1,25 @@
+.nav-elements{
+    position: relative;
+}
+
+.nav-elements:hover{
+    color: #2f9d61;
+     cursor: pointer;
+}
+
+.nav-elements::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    height: 3px;
+    width: 0%;
+    transition: all ease 500ms;
+    background-color: #33B16C;
+   
+}
+
+.nav-elements:hover::after{
+    width: 100%;
+}
+
