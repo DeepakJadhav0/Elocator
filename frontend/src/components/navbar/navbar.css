@@ -23,3 +23,12 @@
     width: 100%;
 }
 
+.footer-elements:hover{
+    color: #2f9d61;
+    cursor: pointer;
+}
+
+.footer-icons:hover{
+    background-color: #33B16C;
+    color: white;
+}
