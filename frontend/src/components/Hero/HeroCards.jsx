@@ -1,4 +1,5 @@
 import React from 'react'
+import { motion } from 'framer-motion'
 
 export default function HeroCards() {
 
@@ -35,14 +36,23 @@ export default function HeroCards() {
     }
   ]
 
+  // Motion variants for cards
+  const cardVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+  }
+
   return (
     <section className="bg-gray-50 min-h-screen flex justify-center items-center px-4">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 place-items-center w-full max-w-7xl">
-
         {Data.map(item => (
-          <div
+          <motion.div
             key={item.id}
             className="group relative w-80 h-[220px] bg-white text-black m-3 px-5 flex flex-col justify-center text-center p-5 shadow-md transition-all duration-500 ease-in-out hover:bg-green-600 hover:text-white hover:-translate-y-2"
+            variants={cardVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
           >
             <h1 className="absolute -top-7 left-6 text-xl font-semibold border p-2 px-3 rounded-md bg-gray-200 transition-all duration-500 ease-in-out group-hover:text-green-600 group-hover:-top-9">
               {item.id}
@@ -55,9 +65,8 @@ export default function HeroCards() {
             <p className="text-sm font-semibold text-gray-700 transition-colors duration-300 ease-in-out group-hover:text-white">
               {item.body}
             </p>
-          </div>
+          </motion.div>
         ))}
-
       </div>
     </section>
   )
