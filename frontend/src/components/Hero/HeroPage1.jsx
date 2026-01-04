@@ -1,5 +1,6 @@
 import heroPattern from "../../assets/main-pattern.svg";
 import hero_img from "../../assets/hero_image.png";
+import { motion } from "framer-motion";
 
 export default function HeroPage1() {
   return (
@@ -15,9 +16,15 @@ export default function HeroPage1() {
           Your Strategic Partner for Innovative and High-Impact
         </h2>
 
-        <h1 className="text-3xl sm:text-4xl font-bold text-green-600 py-3">
+        <motion.h1
+          initial={{ opacity: 0, x: 100 }}          // start offscreen right
+          whileInView={{ opacity: 1, x: 0 }}        // animate when in viewport
+          viewport={{ once: false, amount: 0.3 }}   // once:false → animate every time it enters view
+          transition={{ duration: 0.6, ease: "easeOut" }}
+
+        className="text-3xl sm:text-4xl font-bold text-green-600 py-3">
           E-Waste Sustainable Disposal
-        </h1>
+        </motion.h1>
 
         <p className="text-sm sm:text-base text-gray-700 font-medium leading-relaxed max-w-xl mx-auto lg:mx-0 py-3">
           ELocate: Revolutionizing E-Waste Management for a Sustainable Future.

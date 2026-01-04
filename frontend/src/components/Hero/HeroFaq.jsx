@@ -57,7 +57,7 @@ export default function FAQPage() {
             return (
               <div
                 key={index}
-                className="bg-white shadow-md border border-gray-200 rounded-lg overflow-hidden"
+                className={` shadow-md border hover:shadow-lg border-gray-200 duration-300 transition-all ease-in-out rounded-lg overflow-hidden ${isOpen && "bg-gray-100"}`}
               >
                 <button
                   onClick={() => setOpenIndex(isOpen ? null : index)}
@@ -83,7 +83,7 @@ export default function FAQPage() {
                       exit={{ opacity: 0, height: 0 }}
                       transition={{ duration: 0.3, ease: "easeOut" }}
                     >
-                      <div className="px-4 md:px-6 pb-5 text-sm md:text-md text-gray-600 leading-relaxed">
+                      <div className="px-4 md:px-6 pb-5 text-sm md:text-md duration-300 transition-all ease-in-out bg-gray-100 text-gray-600 leading-relaxed">
                         {faq.answer}
                       </div>
                     </motion.div>

@@ -9,7 +9,7 @@ export default function HeroPage2() {
   };
 
   return (
-    <section className="min-h-screen flex flex-col px-6 md:px-12 leading-relaxed items-center">
+    <section className="pb-5 flex flex-col px-6 md:px-12 leading-relaxed items-center">
         <motion.h3 className="text-sm font-semibold text-green-600 mt-10" variants={itemVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }}>
           —Discover ELocate—
         </motion.h3>
@@ -29,7 +29,7 @@ export default function HeroPage2() {
              </motion.p>
 
              <motion.div className="flex flex-col gap-4" variants={itemVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }}>
-               <button className="border w-full sm:w-fit p-4 bg-green-500 text-sm font-bold text-white rounded-md hover:bg-green-600 duration-300 transition-all ease-out">
+               <button className="border w-full sm:w-fit p-4 bg-green-500 text-sm font-bold text-white rounded-md hover:bg-blue-500 duration-300 transition-all ease-out">
                  CONNECT WITH US
                </button>
 
