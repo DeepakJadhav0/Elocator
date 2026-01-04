@@ -40,7 +40,6 @@ export default function FAQPage() {
     <div className="min-h-screen w-full bg-gray-50 flex justify-center px-4 py-8">
       <div className="w-full max-w-5xl">
         
-        {/* Header */}
         <div className="text-center mb-4">
           <h1 className="text-2xl md:text-3xl font-semibold text-gray-900">
             Frequently Asked Questions
@@ -50,7 +49,6 @@ export default function FAQPage() {
           </p>
         </div>
 
-        {/* FAQ List */}
         <div className="space-y-6">
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index;
@@ -76,7 +74,7 @@ export default function FAQPage() {
                   </span>
                 </button>
 
-                {/* Animated Answer */}
+  
                 <div
                   className={`grid transition-all duration-300 ease-in-out ${
                     isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"

@@ -5,7 +5,7 @@ export default function HeroPage1() {
   return (
     <section className="bg-[#F5FFFC] min-h-screen flex flex-col lg:flex-row items-center justify-center px-5 lg:px-16 gap-10">
       
-      {/* Text Content */}
+
       <div className="w-full lg:w-[55%] text-center lg:text-left">
         <h3 className="text-xs sm:text-sm font-semibold text-green-600 py-3">
           -- Welcome to Elocate -- Powering a Greener Tomorrow
@@ -36,16 +36,13 @@ export default function HeroPage1() {
         </div>
       </div>
 
-      {/* Image Section */}
       <div className="relative w-full lg:w-[45%] flex justify-center items-center">
-        {/* Background pattern */}
         <img
           src={heroPattern}
           alt=""
           className="absolute inset-0 w-full h-full object-contain opacity-80"
         />
 
-        {/* Foreground hero image */}
         <img
           src={hero_img}
           alt="E-waste recycling illustration"
