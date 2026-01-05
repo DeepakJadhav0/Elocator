@@ -33,11 +33,11 @@ export default function HeroPage1() {
           device at a time.
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start py-4">
-          <button className="bg-green-500 text-sm font-semibold rounded-md text-white px-6 py-4 hover:bg-green-600 hover:shadow-md duration-300">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start py-7">
+          <button className="bg-green-500 text-sm font-semibold rounded-md text-white px-6 py-4 hover:bg-blue-500 hover:-translate-y-2 hover:shadow-md duration-300">
             FIND NEAREST FACILITY
           </button>
-          <button className="bg-green-500 text-sm font-semibold rounded-md text-white px-6 py-4 hover:bg-green-600 hover:shadow-md duration-300">
+          <button className="bg-green-500 text-sm font-semibold rounded-md text-white px-6 py-4  hover:bg-blue-500 hover:-translate-y-2 hover:shadow-md duration-300">
             START RECYCLE TODAY
           </button>
         </div>

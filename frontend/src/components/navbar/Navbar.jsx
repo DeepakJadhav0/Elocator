@@ -17,7 +17,7 @@ export default function Navbar() {
   return (
     <>
 
-      <nav className={`flex items-center fixed  bg-white w-full z-20 justify-between border-2 px-6 md:px-12 p-2 shadow-md font-medium ${isScrolled ? "opacity-90" : "opacity-100"}`}>
+      <nav className={`flex items-center fixed  bg-white w-full py-4 z-20 justify-between border-2  md:pl-12  pr-2 shadow-md font-medium ${isScrolled ? "opacity-90" : "opacity-100"}`}>
         <div>logo</div>
 
         <ul className="hidden md:flex gap-9">
@@ -35,7 +35,7 @@ export default function Navbar() {
           <p className="text-[#008B63] flex items-center gap-2">
             <IoLocationSharp /> Hyderabad, Telangana
           </p>
-          <button className="border-2 px-5 font-bold text-[#33B16C] rounded-md hover:bg-[#33B16C] hover:text-white transition duration-300 border-[#33B16C] p-2">
+          <button className="border-[1px] px-5 font-bold text-[#33B16C] rounded-md hover:bg-[#33B16C] hover:text-white transition duration-300 border-[#33B16C] p-2">
             SIGNIN
           </button>
         </div>
@@ -85,7 +85,7 @@ export default function Navbar() {
             <IoLocationSharp /> Hyderabad, Telangana
           </p>
 
-          <button className="border-2 w-fit mt-4 px-6 font-bold text-[#33B16C] rounded-md hover:bg-[#33B16C] hover:text-white transition duration-300 border-[#33B16C] p-3">
+          <button className="border-1 w-fit mt-4 px-6 font-bold text-[#33B16C] rounded-md hover:bg-[#33B16C] hover:text-white transition duration-300 border-[#33B16C] p-3">
             SIGNIN
           </button>
         </div>
