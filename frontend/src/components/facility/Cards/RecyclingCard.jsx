@@ -12,9 +12,8 @@ export default function RecyclingCard({ item }) {
   };
 
   return (
-    <div className="bg-white rounded-xl shadow-md border-l-4 border-orange-500 p-5 m-3 sm:m-2 flex flex-col gap-3">
-      
-      {/* Header */}
+    <div className={`bg-white rounded-xl shadow-md border-l-4 ${item.verified ? "border-green-500" : "border-orange-500"} p-5 m-3 sm:m-2 flex flex-col gap-3`}>
+
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
         <h2 className="text-lg font-semibold text-gray-800 break-words">{item.name}</h2>
         <span className={`flex items-center text-sm font-medium ${item.verified ? "text-green-500" : "text-orange-500"}`}>
@@ -23,25 +22,24 @@ export default function RecyclingCard({ item }) {
         </span>
       </div>
 
-      {/* Address */}
+
       <div className="flex items-start gap-3 text-gray-600 text-sm">
         <FaMapMarkerAlt className="text-lg mt-1 flex-shrink-0" />
         <p className="leading-relaxed break-words">{item.address}</p>
       </div>
 
-      {/* Phone */}
+
       <div className="flex items-center gap-3 text-gray-600 text-sm">
         <FaPhoneAlt className="text-sm flex-shrink-0" />
         <p>{item.contact}</p>
       </div>
 
-      {/* Time */}
+ 
       <div className="flex items-center gap-3 text-gray-600 text-sm">
         <FaClock className="text-sm flex-shrink-0" />
         <p>{item.time}</p>
       </div>
 
-      {/* Buttons */}
       <div className="flex flex-col sm:flex-row gap-3 mt-2">
         <button
           onClick={() => handelSelectFacility(item._id)}

@@ -17,7 +17,10 @@ export default function MapComponent({ userLocation, facilities, filterDistance 
 
   /* -------------------- INIT MAP -------------------- */
   useEffect(() => {
-    if (!userLocation) return;
+    if (!userLocation || !Array.isArray(userLocation) || userLocation.length !== 2 || isNaN(userLocation[0]) || isNaN(userLocation[1])) {
+      console.error("Invalid userLocation:", userLocation);
+      return; // Exit if userLocation is invalid
+    }
 
     mapInstance.current = new mapboxgl.Map({
       container: mapRef.current,
@@ -36,7 +39,7 @@ export default function MapComponent({ userLocation, facilities, filterDistance 
 
   /* -------------------- ADD FACILITY MARKERS -------------------- */
   useEffect(() => {
-    if (!mapInstance.current || !userLocation) return;
+    if (!mapInstance.current || !userLocation || !Array.isArray(userLocation)) return;
 
     // Remove old markers
     facilityMarkers.current.forEach((marker) => marker.remove());
@@ -57,7 +60,10 @@ export default function MapComponent({ userLocation, facilities, filterDistance 
 
   /* -------------------- DRAW ROUTE ON SELECTION -------------------- */
   useEffect(() => {
-    if (!selectedFacility || !mapInstance.current || !userLocation) return;
+    if (!selectedFacility || !selectedFacility.lon || !selectedFacility.lat || !mapInstance.current || !userLocation) {
+      
+      return; // Exit if selectedFacility is invalid
+    }
 
     const destination = [selectedFacility.lon, selectedFacility.lat];
 
@@ -77,6 +83,11 @@ export default function MapComponent({ userLocation, facilities, filterDistance 
 
   /* -------------------- ROUTE FUNCTION -------------------- */
   async function drawRoute(from, to) {
+    if (!Array.isArray(from) || !Array.isArray(to) || from.length !== 2 || to.length !== 2) {
+      console.error("Invalid route coordinates:", from, to);
+      return;
+    }
+
     const url = `https://api.mapbox.com/directions/v5/mapbox/driving/${from[0]},${from[1]};${to[0]},${to[1]}?geometries=geojson&access_token=${mapboxgl.accessToken}`;
     const res = await fetch(url);
     const data = await res.json();

@@ -1,4 +1,4 @@
-import { useState , useEffect } from "react";
+import { useState, useEffect } from "react";
 import { IoLocationSharp } from "react-icons/io5";
 import { HiMenu, HiX } from "react-icons/hi";
 import "./navbar.css";
@@ -6,6 +6,7 @@ import "./navbar.css";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [userLocation, setUserLocation] = useState("Loading..."); // <-- city, state
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -13,11 +14,46 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (!navigator.geolocation) {
+      setUserLocation("Location not available");
+      return;
+    }
+
+    navigator.geolocation.getCurrentPosition(
+      async (position) => {
+        const { latitude, longitude } = position.coords;
+        try {
+          const res = await fetch(
+            `https://nominatim.openstreetmap.org/reverse?lat=${latitude}&lon=${longitude}&format=json`
+          );
+          const data = await res.json();
+          const city =
+            data.address.city ||
+            data.address.town ||
+            data.address.village ||
+            "City not found";
+          const state = data.address.state || "State not found";
+          setUserLocation(`${city}, ${state}`);
+        } catch (error) {
+          console.error(error);
+          setUserLocation("Location not found");
+        }
+      },
+      (error) => {
+        console.error(error);
+        setUserLocation("Location not found");
+      }
+    );
+  }, []);
 
   return (
     <>
-
-      <nav className={`flex items-center fixed  bg-white w-full py-4 z-20 justify-between border-2  md:pl-12  pr-2 shadow-md font-medium ${isScrolled ? "opacity-90" : "opacity-100"}`}>
+      <nav
+        className={`flex items-center fixed  bg-white w-full py-4 z-20 justify-between border-2  md:pl-12  pr-2 shadow-md font-medium ${
+          isScrolled ? "opacity-90" : "opacity-100"
+        }`}
+      >
         <div>logo</div>
 
         <ul className="hidden md:flex gap-9">
@@ -30,10 +66,9 @@ export default function Navbar() {
           <li className="nav-elements">Rules</li>
         </ul>
 
-
         <div className="hidden md:flex items-center gap-6">
           <p className="text-[#008B63] flex items-center gap-2">
-            <IoLocationSharp /> Hyderabad, Telangana
+            <IoLocationSharp /> {userLocation}
           </p>
           <button className="border-[1px] px-5 font-bold text-[#33B16C] rounded-md hover:bg-[#33B16C] hover:text-white transition duration-300 border-[#33B16C] p-2">
             SIGNIN
@@ -61,14 +96,12 @@ export default function Navbar() {
         transform transition-transform duration-300
         ${isOpen ? "translate-x-0" : "translate-x-full"}`}
       >
-
         <button
           className="text-3xl absolute top-4 right-4"
           onClick={() => setIsOpen(false)}
         >
           <HiX />
         </button>
-
 
         <div className="mt-16 h-full overflow-y-auto flex flex-col px-6 pb-6">
           <ul className="flex flex-col gap-6 font-medium">
@@ -82,7 +115,7 @@ export default function Navbar() {
           </ul>
 
           <p className="text-[#008B63] flex items-center gap-2 mt-6">
-            <IoLocationSharp /> Hyderabad, Telangana
+            <IoLocationSharp /> {userLocation}
           </p>
 
           <button className="border-1 w-fit mt-4 px-6 font-bold text-[#33B16C] rounded-md hover:bg-[#33B16C] hover:text-white transition duration-300 border-[#33B16C] p-3">

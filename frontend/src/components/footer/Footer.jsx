@@ -8,6 +8,7 @@ import { AiOutlineTwitter } from "react-icons/ai";
 export default function Footer() {
   return (
 <footer className="bg-[#F5FFFC] text-gray-800 shadow-md">
+       <hr className="bg-emerald-200 mt-10 p-[1px]" />
   <div className="max-w-6xl mx-auto px-3 py-2">
     <div className="grid grid-cols-1 md:grid-cols-4 gap-12 p-5">
       
