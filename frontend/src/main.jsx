@@ -7,11 +7,12 @@ import {Provider} from "react-redux"
 import Navbar from "./components/navbar/Navbar.jsx"
 import Footer from "./components/footer/Footer.jsx"
 import About from './components/about/About.jsx'
+import Recycle from './components/recycle/Recycle.jsx'
 
 createRoot(document.getElementById('root')).render(
   <Provider store={store}>
     <Navbar/>
-    <About/>
+    <Recycle/>
     <Footer/>
   </Provider>
 )
