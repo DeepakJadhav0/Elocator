@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+/* Navigation link with animated underline on hover */
+.nav-elements {
+  position: relative;
+  font-family: "Poppins", sans-serif;
+  transition: color 300ms ease;
+}
+
+.nav-elements:hover {
+  color: #2f9d61;
+  cursor: pointer;
+}
+
+/* Animated underline effect */
+.nav-elements::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  height: 3px;
+  width: 0%;
+  background-color: #33b16c;
+  transition: width 500ms ease;
+}
+
+.nav-elements:hover::after {
+  width: 100%;
+}
+
+/* Active state underline */
+.nav-elements.active::after {
+  width: 100%;
+  background-color: #33b16c;
+}
+
+/* Footer utility classes */
+.footer-elements:hover {
+  color: #2f9d61;
+  cursor: pointer;
+}
+
+.footer-icons:hover {
+  background-color: #33b16c;
+  color: white;
+}
