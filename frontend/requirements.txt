@@ -1,0 +1,15 @@
+@mapbox/mapbox-gl-geocoder==5.1.2
+@reduxjs/toolkit==2.11.2
+axios==1.13.2
+esbuild==0.17.19
+framer-motion==12.23.26
+lucide-react==0.562.0
+mapbox-gl==3.17.0
+react==19.2.3
+react-dom==19.2.3
+react-hook-form==7.71.1
+react-hot-toast==2.6.0
+react-icons==5.5.0
+react-redux==9.2.0
+react-router-dom==7.12.0
+zod==4.3.5
